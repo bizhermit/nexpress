@@ -1,4 +1,4 @@
-# Nextron
+# Nexpress
 
 Next.jsをベースにExpressを使用したアプリケーションを構築するライブラリです。
 
@@ -13,13 +13,13 @@ Next.jsをベースにExpressを使用したアプリケーションを構築す
 
 import execute from "@bizhermit/nexpress";
 
-execute({/* config */});
+execute({/* props */});
 ```
 
 ---
 
 ## 設定値
-executeのconfig（第一引数）に指定できるプロパティの一覧です。
+executeのprops（第一引数）に指定できるプロパティの一覧です。
 
 #### rootDirname?: string
 nextのルートディレクトリ  

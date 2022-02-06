@@ -1,6 +1,6 @@
 {
   "name": "@bizhermit/nexpress",
-  "version": "1.0.1",
+  "version": "1.0.3",
   "description": "nextjs + express application",
   "repository": {
     "type": "git",
@@ -10,37 +10,38 @@
     "url": "https://github.com/bizhermit/nexpress/issues",
     "email": "suppoert@bizhermit.com"
   },
-  "author": "Ryoichi Senda <rsenda@bizhermit.com> (https://bizhermit.com)",
+  "author": "Senda Ryoichi <rsenda@bizhermit.com> (https://bizhermit.com)",
   "homepage": "https://bizhermit.com",
   "license": "MIT",
   "main": "dist/index.js",
   "bin": "dist/index.d.ts",
   "files": [
-    "dist"
+    "dist",
+    "CREDIT"
   ],
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "npx rimraf dist && npx license-checker --production > AUTHORS && npx tsc -p src-nexpress/tsconfig.dist.json && npx minifier ./dist",
-    "postpublish": "git tag && git push origin tags/v%npm_package_version% && node ./imitation"
+    "license": "npx rimraf CREDIT && npx license -o CREDIT --returnError -exclude caniuse-lite",
+    "build": "npm run license && npx rimraf dist && npx tsc -p src/tsconfig.json && npx minifier dist",
+    "prepare": "npm run build && git add -A && git diff --quiet --exit-code --cached || git commit -m \"build v%npm_package_version%\" && git push origin",
+    "postpublish": "git tag && git push origin tags/v%npm_package_version%"
   },
   "devDependencies": {
+    "@bizhermit/license": "^1.0.9",
     "@bizhermit/minifier": "^1.0.0",
     "@types/express": "^4.17.13",
     "@types/express-session": "^1.17.4",
     "@types/node": "^17.0.0",
-    "@types/react": "^17.0.37",
     "cpx": "^1.5.0",
-    "license-checker": "^25.0.1",
-    "next": "^12.0.7",
     "rimraf": "^3.0.2",
     "typescript": "^4.5.4"
   },
   "dependencies": {
-    "@bizhermit/basic-utils": "^1.0.0",
+    "@bizhermit/basic-utils": "^1.1.0",
     "@bizhermit/next-absorber": "^1.0.0",
     "express": "^4.17.2",
     "express-session": "^1.17.2",
-    "helmet": "^4.6.0"
+    "helmet": "^4.6.0",
+    "next": "^12.0.10"
   },
   "keywords": [
     "bizhermit",

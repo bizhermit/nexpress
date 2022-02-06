@@ -1,5 +1,5 @@
 import expressSession from "express-session";
-declare type Config = {
+declare type Props = {
     rootDirname?: string;
     port?: number;
     i18nFilename?: string;
@@ -27,5 +27,5 @@ declare type Config = {
         };
     };
 };
-declare const execute: (config?: Config | undefined) => void;
+declare const execute: (props?: Props | undefined) => void;
 export default execute;
